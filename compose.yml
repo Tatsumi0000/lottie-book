@@ -1,0 +1,15 @@
+services:
+  app:
+    build: .
+    container_name: lottie-pages
+    ports:
+      - "5173:5173"
+    volumes:
+      - .:/usr/src/app
+    working_dir: /usr/src/app
+    command: "deno task dev"
+    environment:
+      - DENO_DIR=/use/src/app/.deno_cache
+    tty: true
+    stdin_open: true
+

@@ -1,7 +1,7 @@
 FROM denoland/deno:2.6.3
 
-# Create working directory
-WORKDIR /app
+RUN apt update && \
+    apt -y upgrade  
 
-# Copy source
-COPY . .
+WORKDIR /usr/src/app
+
