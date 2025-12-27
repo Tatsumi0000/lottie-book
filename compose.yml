@@ -12,4 +12,3 @@ services:
       - DENO_DIR=/use/src/app/.deno_cache
     tty: true
     stdin_open: true
-
