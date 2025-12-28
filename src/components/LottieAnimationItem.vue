@@ -2,14 +2,26 @@
 import { ref, watch } from "vue";
 import { Vue3Lottie } from "vue3-lottie";
 
-interface Props {
-  /** LottieアニメーションのJSONデータ */
-  animationData?: object;
-  /** LottieアニメーションのJSONファイルのパス */
-  path?: string;
+interface BaseProps {
   /** ファイル名 */
-  fileName: string;
+  title: string;
 }
+
+/** animationData を使う場合の型 */
+interface DataProps extends BaseProps {
+  /** LottieアニメーションのJSONデータ */
+  animationData: object;
+  path?: never; // pathは入力させない
+}
+
+/** path を使う場合の型 */
+interface PathProps extends BaseProps {
+  animationData?: never; // animationDataは入力させない
+  /** LottieアニメーションのJSONファイルのパス */
+  path: string;
+}
+
+type Props = DataProps | PathProps;
 
 const props = defineProps<Props>();
 /** ループするか */
@@ -51,7 +63,7 @@ watch(loop, (newLoop) => {
       :autoPlay="autoPlay"
       :loop="loop"
     />
-    <VCardTitle> {{ props.fileName }}</VCardTitle>
+    <VCardTitle> {{ props.title }}</VCardTitle>
     <VBtn @click="handlePlay()"> 再生 </VBtn>
     <VSwitch
       :label="`ループ再生: ${loop ? 'ON' : 'OFF'}`"
