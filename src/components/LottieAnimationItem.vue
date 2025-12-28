@@ -7,6 +7,8 @@ interface Props {
   animationData?: object;
   /** LottieアニメーションのJSONファイルのパス */
   path?: string;
+  /** ファイル名 */
+  fileName: string;
 }
 
 const props = defineProps<Props>();
@@ -41,23 +43,22 @@ watch(loop, (newLoop) => {
 </script>
 
 <template>
-  <VContainer>
-    <VCard>
-      <Vue3Lottie
-        ref="lottieContainer"
-        :animationData="props.animationData"
-        :assetsPath="props.path"
-        :autoPlay="autoPlay"
-        :loop="loop"
-      />
-      <VBtn @click="handlePlay()"> 再生 </VBtn>
-      <VSwitch
-        :label="`ループ再生: ${loop ? 'ON' : 'OFF'}`"
-        color="primary"
-        v-model="loop"
-      />
-    </VCard>
-  </VContainer>
+  <VCard>
+    <Vue3Lottie
+      ref="lottieContainer"
+      :animationData="props.animationData"
+      :assetsPath="props.path"
+      :autoPlay="autoPlay"
+      :loop="loop"
+    />
+    <VCardTitle> {{ props.fileName }}</VCardTitle>
+    <VBtn @click="handlePlay()"> 再生 </VBtn>
+    <VSwitch
+      :label="`ループ再生: ${loop ? 'ON' : 'OFF'}`"
+      color="primary"
+      v-model="loop"
+    />
+  </VCard>
 </template>
 
 <style scoped></style>
