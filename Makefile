@@ -15,4 +15,4 @@ run:
 	docker compose run --rm app /bin/bash
 
 up: 
-	docker compose up 
+	docker compose up -d
