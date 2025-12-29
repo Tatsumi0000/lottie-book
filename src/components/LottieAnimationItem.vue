@@ -84,7 +84,7 @@ watch(loop, (newLoop) => {
 
         <div class="d-flex align-center">
           <span
-            class="text-caption font-weight-medium text-grey-darken-1 mr-2 d-none d-sm-inline"
+            class="text-body-2 font-weight-bold text-grey-darken-2 mr-2 d-none d-sm-inline"
           >
             LOOP
           </span>
