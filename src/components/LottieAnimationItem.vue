@@ -55,22 +55,66 @@ watch(loop, (newLoop) => {
 </script>
 
 <template>
-  <VCard>
-    <Vue3Lottie
-      ref="lottieContainer"
-      :animationData="props.animationData"
-      :assetsPath="props.path"
-      :autoPlay="autoPlay"
-      :loop="loop"
-    />
-    <VCardTitle> {{ props.title }}</VCardTitle>
-    <VBtn @click="handlePlay()"> 再生 </VBtn>
-    <VSwitch
-      :label="`ループ再生: ${loop ? 'ON' : 'OFF'}`"
-      color="primary"
-      v-model="loop"
-    />
+  <VCard class="mx-auto overflow-hidden custom-card" elevation="2" rounded="xl">
+    <div
+      class="lottie-wrapper d-flex align-center justify-center bg-grey-lighten-4"
+    >
+      <Vue3Lottie
+        ref="lottieContainer"
+        :animationData="props.animationData"
+        :assetsPath="props.path"
+        :autoPlay="autoPlay"
+        :loop="loop"
+      />
+    </div>
+    <VCardTitle class="text-h6 font-weight-bold pt-4 px-4 text-truncate">
+      {{ props.title }}
+    </VCardTitle>
+    <VCardActions class="px-4 pb-4">
+      <div class="d-flex align-center justify-space-between w-100">
+        <VBtn
+          color="primary"
+          variant="elevated"
+          prepend-icon="mdi-play"
+          rounded="lg"
+          @click="handlePlay"
+        >
+          再生
+        </VBtn>
+
+        <div class="d-flex align-center">
+          <span class="text-caption font-weight-medium text-grey-darken-1 mr-2">
+            LOOP
+          </span>
+          <VSwitch
+            v-model="loop"
+            color="success"
+            hide-details
+            density="compact"
+            inset
+          />
+        </div>
+      </div>
+    </VCardActions>
   </VCard>
 </template>
 
-<style scoped></style>
+<style scoped>
+.custom-card {
+  transition:
+    transform 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* ホバー時に少し浮き上がる演出 */
+.custom-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+.lottie-wrapper {
+  aspect-ratio: 16 / 9;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+</style>

@@ -4,14 +4,16 @@ import SampleAnimation from "./../assets/sampleLottie.json";
 </script>
 
 <template>
-  <VRow>
-    <VCol cols="12" md="4" v-for="n in 10">
-      <LottieAnimationItem
-        :title="`${n.toString()} - 番目`"
-        :animationData="SampleAnimation"
-      />
-    </VCol>
-  </VRow>
+  <VContainer>
+    <VRow>
+      <VCol cols="6" md="2" v-for="n in 10" :key="n">
+        <LottieAnimationItem
+          :title="`${n.toString()} - 番目`"
+          :animationData="SampleAnimation"
+        />
+      </VCol>
+    </VRow>
+  </VContainer>
 </template>
 
 <style scoped></style>
