@@ -4,7 +4,6 @@ import LottieAnimationList from "@/components/LottieAnimationList.vue";
 
 <template>
   <LottieAnimationList />
-  <RouterView />
 </template>
 
 <style scoped></style>
