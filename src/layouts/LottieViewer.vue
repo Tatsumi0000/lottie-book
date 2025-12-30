@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import LottieAnimationItem from "@/components/LottieAnimationItem.vue";
 import { router } from "@/plugins/router";
-import { computed, onMounted, ref, watch } from "vue";
+import { computed, ref, watch } from "vue";
 import { useRoute } from "vue-router";
 
 const route = useRoute();
