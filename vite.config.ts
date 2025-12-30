@@ -21,7 +21,7 @@ export default defineConfig({
   resolve: {
     alias: {
       // @ を src ディレクトリに割り当てる
-      '@': fileURLToPath(new URL('./src', import.meta.url))
-    }
-  }
+      "@": fileURLToPath(new URL("./src", import.meta.url)),
+    },
+  },
 });

@@ -16,7 +16,7 @@ const changeTheme = () => {
       <VSwitch
         v-model="isDarkTheme"
         @update:model-value="changeTheme"
-        :prepend-icon="isDarkTheme ? 'mdi-weather-night' : 'mdi-weather-sunny'"
+        :prepend-icon='isDarkTheme ? "mdi-weather-night" : "mdi-weather-sunny"'
         hide-details
         inset
         class="mr-auto"

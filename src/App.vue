@@ -1,13 +1,12 @@
 <script setup lang="ts">
 import TheHeader from "@/components/TheHeader.vue";
-import LottieAnimationList from "@/components/LottieAnimationList.vue";
 </script>
 
 <template>
   <VApp>
     <TheHeader />
     <VMain>
-      <LottieAnimationList />
+      <RouterView />
     </VMain>
   </VApp>
 </template>

@@ -103,9 +103,7 @@ watch(loop, (newLoop) => {
 
 <style scoped>
 .custom-card {
-  transition:
-    transform 0.2s ease-in-out,
-    box-shadow 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
