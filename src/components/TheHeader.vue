@@ -11,12 +11,12 @@ const changeTheme = () => {
 </script>
 
 <template>
-  <VAppBar title="lottie-title">
+  <VAppBar title="Lottie Books">
     <template v-slot:append>
       <VSwitch
         v-model="isDarkTheme"
         @update:model-value="changeTheme"
-        :prepend-icon='isDarkTheme ? "mdi-weather-night" : "mdi-weather-sunny"'
+        :prepend-icon="isDarkTheme ? 'mdi-weather-night' : 'mdi-weather-sunny'"
         hide-details
         inset
         class="mr-auto"

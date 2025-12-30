@@ -1,4 +1,4 @@
-# lottie-pages
+# Lottie Books
 
 Deno + Vue3で開発をしています。 開発環境はdocker composeを使っています。
 
