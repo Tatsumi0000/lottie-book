@@ -3,7 +3,8 @@ import ViteFonts from "unplugin-fonts/vite";
 import vue from "@vitejs/plugin-vue";
 import { fileURLToPath } from "node:url";
 
-export default defineConfig({
+  export default defineConfig(({ mode }) => ({
+  base: mode === 'production' ? '/lottie-books/' : '/',
   plugins: [
     vue(),
     ViteFonts({
@@ -24,4 +25,4 @@ export default defineConfig({
       "@": fileURLToPath(new URL("./src", import.meta.url)),
     },
   },
-});
+}));
