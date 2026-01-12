@@ -1,16 +1,30 @@
 <script setup lang="ts">
 import LottieAnimationItem from "@/components/LottieAnimationItem.vue";
-import SampleAnimation from "@/assets/sampleLottie.json";
+import { useLottieAssets } from "@/composables/useLottieAssets";
+
+// Composableを呼び出し
+const { currentAssets } = useLottieAssets();
 </script>
 
 <template>
   <VContainer>
-    <VRow>
-      <VCol cols="6" lg="3" v-for="n in 10" :key="n">
+    <VRow v-if="currentAssets.length > 0">
+      <VCol cols="6" lg="3" v-for="asset in currentAssets" :key="asset.url">
         <LottieAnimationItem
-          :title="`${n.toString()} - 番目`"
-          :animationData="SampleAnimation"
+          :title="`${asset.fileName}`"
+          :animationData="asset.content"
         />
+      </VCol>
+    </VRow>
+
+    <VRow v-else justify="center">
+      <VCol cols="12" md="8">
+        <VEmptyState
+          icon="mdi-alert-circle-outline"
+          title="コンテンツが見つかりません"
+          text="現在のテーマに対応するアニメーションアセットが見つかりませんでした。ディレクトリの設定を確認してください。"
+        >
+        </VEmptyState>
       </VCol>
     </VRow>
   </VContainer>
