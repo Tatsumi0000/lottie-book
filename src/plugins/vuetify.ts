@@ -1,4 +1,4 @@
-import "@mdi/font/css/materialdesignicons.css";
+import { aliases, mdi } from "vuetify/iconsets/mdi-svg";
 // @ts-ignore "vuetify/styles.css"にしないとエラーにならないけど拡張子をつけるとビルドエラーになるので除外
 import "vuetify/styles";
 import { createVuetify } from "vuetify";
@@ -13,5 +13,9 @@ export default createVuetify({
   },
   icons: {
     defaultSet: "mdi",
+    aliases,
+    sets: {
+      mdi,
+    },
   },
 });

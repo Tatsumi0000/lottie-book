@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, watch } from "vue";
 import { Vue3Lottie } from "vue3-lottie";
-
+import { mdiPlay } from "@mdi/js";
 interface BaseProps {
   /** ファイル名 */
   title: string;
@@ -70,12 +70,12 @@ watch(loop, (newLoop) => {
     <VCardTitle class="text-h6 font-weight-bold pt-4 px-4 text-truncate">
       {{ props.title }}
     </VCardTitle>
-    <VCardActions class="px-4 pb-4">
+    <VCardActions clmdiPlayass="px-4 pb-4">
       <div class="d-flex align-center justify-space-between w-100">
         <VBtn
           color="primary"
           variant="elevated"
-          prepend-icon="mdi-play"
+          :prepend-icon="mdiPlay"
           rounded="lg"
           @click="handlePlay"
         >

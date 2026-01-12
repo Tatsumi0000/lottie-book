@@ -3,7 +3,7 @@ import LottieAnimationItem from "@/components/LottieAnimationItem.vue";
 import { router } from "@/plugins/router";
 import { computed, ref, watch } from "vue";
 import { useRoute } from "vue-router";
-
+import { mdiClose } from "@mdi/js";
 const route = useRoute();
 const animationData = ref<object | null>(null);
 const isLoading = ref(false);
@@ -65,7 +65,7 @@ const isOpen = computed({
       <div v-else-if="animationData">
         <VCardTitle class="d-flex justify-space-between align-center">
           {{ route.params.title }}
-          <VBtn icon="mdi-close" variant="text" @click="isOpen = false" />
+          <VBtn :icon="mdiClose" variant="text" @click="isOpen = false" />
         </VCardTitle>
         <LottieAnimationItem
           :title="String(route.params.title)"

@@ -2,7 +2,7 @@
 import { ref } from "vue";
 import { useTheme } from "vuetify";
 import { VSwitch } from "vuetify/components";
-
+import { mdiWeatherNight, mdiWeatherSunny } from "@mdi/js";
 const theme = useTheme();
 const isDarkTheme = ref(theme.global.current.value.dark);
 const changeTheme = () => {
@@ -14,7 +14,7 @@ const changeTheme = () => {
   <VSwitch
     v-model="isDarkTheme"
     @update:model-value="changeTheme"
-    :prepend-icon='isDarkTheme ? "mdi-weather-night" : "mdi-weather-sunny"'
+    :prepend-icon="isDarkTheme ? mdiWeatherNight : mdiWeatherSunny"
     hide-details
     inset
     class="mr-auto"

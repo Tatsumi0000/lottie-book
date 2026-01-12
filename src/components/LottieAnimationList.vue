@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import LottieAnimationItem from "@/components/LottieAnimationItem.vue";
 import { useLottieAssets } from "@/composables/useLottieAssets";
-
+import { mdiAlertCircleOutline } from "@mdi/js";
 // Composableを呼び出し
 const { currentAssets } = useLottieAssets();
 </script>
@@ -20,7 +20,7 @@ const { currentAssets } = useLottieAssets();
     <VRow v-else justify="center">
       <VCol cols="12" md="8">
         <VEmptyState
-          icon="mdi-alert-circle-outline"
+          :icon="mdiAlertCircleOutline"
           title="コンテンツが見つかりません"
           text="現在のテーマに対応するアニメーションアセットが見つかりませんでした。ディレクトリの設定を確認してください。"
         >
