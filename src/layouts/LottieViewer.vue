@@ -91,8 +91,7 @@ const isOpen = computed({
         variant="tonal"
         :icon="mdiAlertCircle"
         @click:close="onAlertClosed()"
-        >ファイルが見つかりません</VAlert
-      >
+      >ファイルが見つかりません</VAlert>
     </VCard>
   </VDialog>
 </template>

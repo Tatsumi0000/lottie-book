@@ -10,15 +10,15 @@ const routes = [
     path: "/",
     component: Top,
     children: [
-        { path: "/preview/:theme/:title", component: LottieViewer },
-    ]
+      { path: "/preview/:theme/:title", component: LottieViewer },
+    ],
   },
   { path: "/hello", component: HelloWorld },
   { path: "/playground", component: Playground },
   // 上記以外のページは全部TOPへ遷移
-  { 
-    path: "/:pathMatch(.*)*", 
-    redirect: "/" 
+  {
+    path: "/:pathMatch(.*)*",
+    redirect: "/",
   },
 ];
 
