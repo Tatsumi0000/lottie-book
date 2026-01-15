@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import { ref, watch } from "vue";
+import { computed, ref, watch } from "vue";
 import { Vue3Lottie } from "vue3-lottie";
 import { mdiPlay } from "@mdi/js";
+import { useRoute } from "vue-router";
+import { useTheme } from "vuetify";
 interface BaseProps {
   /** ファイル名 */
   title: string;
@@ -22,8 +24,16 @@ interface PathProps extends BaseProps {
 }
 
 type Props = DataProps | PathProps;
+const route = useRoute();
+const isTopPage = computed(() => route.path === "/");
+
+const { global: theme } = useTheme();
 
 const props = defineProps<Props>();
+const transitionLink = computed(() => {
+  return `preview/${theme.name.value}/${props.title}`;
+});
+
 /** ループするか */
 const loop = ref(false);
 /** 自動再生するか */
@@ -55,7 +65,14 @@ watch(loop, (newLoop) => {
 </script>
 
 <template>
-  <VCard class="mx-auto overflow-hidden custom-card" elevation="2" rounded="xl">
+  <VCard
+    class="mx-auto overflow-hidden custom-card"
+    elevation="2"
+    rounded="xl"
+    :to="isTopPage ? transitionLink : undefined"
+    :style="{ cursor: isTopPage ? 'pointer' : 'default' }"
+    :ripple="isTopPage"
+  >
     <div
       class="lottie-wrapper d-flex align-center justify-center bg-grey-lighten-4"
     >
@@ -103,7 +120,9 @@ watch(loop, (newLoop) => {
 
 <style scoped>
 .custom-card {
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  transition:
+    transform 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out;
   border: 1px solid rgba(0, 0, 0, 0.05);
 }
 

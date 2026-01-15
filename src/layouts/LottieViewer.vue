@@ -3,21 +3,27 @@ import LottieAnimationItem from "@/components/LottieAnimationItem.vue";
 import { router } from "@/plugins/router";
 import { computed, ref, watch } from "vue";
 import { useRoute } from "vue-router";
-import { mdiClose } from "@mdi/js";
+import { mdiAlertCircle, mdiClose } from "@mdi/js";
 const route = useRoute();
 const animationData = ref<object | null>(null);
 const isLoading = ref(false);
 
-// 1. assets/lottie 内のすべてのJSONファイルを動的インポートの対象にする
-const lottieFiles = import.meta.glob("@/assets/*.json");
+// 1. assets/ 内のすべてのJSONファイルを動的インポートの対象にする
+const lottieFiles = import.meta.glob("/src/assets/**/*.json");
 
-const loadLottieFile = async (fileName: string) => {
-  if (!fileName) return;
+const onAlertClosed = () => {
+  router.push("/");
+};
+const loadLottieFile = async (theme: string, title: string) => {
+  if (!theme || !title) {
+    animationData.value = null;
+    return;
+  }
 
   isLoading.value = true;
 
   // 期待されるパスを組み立てる
-  const fullPath = `/src/assets/${fileName}.json`;
+  const fullPath = `/src/assets/${theme}/${title}`;
   const loader = lottieFiles[fullPath];
 
   if (loader) {
@@ -40,12 +46,17 @@ const loadLottieFile = async (fileName: string) => {
 
 // URLのパラメータ (title) が変わるたびに読み込み直す
 watch(
-  () => route.params.title,
-  (newTitle) => {
-    loadLottieFile(newTitle as string);
+  () => [route.params.theme, route.params.title],
+  ([newTheme, newTitle]) => {
+    if (typeof newTheme === "string" && typeof newTitle === "string") {
+      loadLottieFile(newTheme, newTitle);
+    } else {
+      animationData.value = null;
+    }
   },
-  { immediate: true },
+  { immediate: true }, // ページを開いた瞬間にも実行
 );
+
 // URLに title があればダイアログを開く
 const isOpen = computed({
   get: () => !!route.params.title,
@@ -73,7 +84,15 @@ const isOpen = computed({
         />
       </div>
 
-      <VAlert v-else type="error">ファイルが見つかりません</VAlert>
+      <VAlert
+        v-else
+        type="error"
+        closable
+        variant="tonal"
+        :icon="mdiAlertCircle"
+        @click:close="onAlertClosed()"
+        >ファイルが見つかりません</VAlert
+      >
     </VCard>
   </VDialog>
 </template>
