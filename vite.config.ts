@@ -5,7 +5,7 @@ import { fileURLToPath } from "node:url";
 import vuetify from "vite-plugin-vuetify";
 
 export default defineConfig(({ mode }) => ({
-  base: mode === "production" ? "/lottie-books/" : "/",
+  base: mode === "production" ? "/lottie-book/" : "/",
   plugins: [
     vue(),
     vuetify({ autoImport: true }),

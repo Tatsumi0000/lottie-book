@@ -22,7 +22,7 @@ const items: Item[] = [
     <VAppBarNavIcon variant="text" @click.stop="isOpenDrawer = !isOpenDrawer" />
 
     <VAppBarTitle>
-      <RouterLink to="/" class="app-title-link">Lottie Books</RouterLink>
+      <RouterLink to="/" class="app-title-link">Lottie Book</RouterLink>
     </VAppBarTitle>
     <template v-slot:append>
       <ThemeSwitch class="pr-5" />
