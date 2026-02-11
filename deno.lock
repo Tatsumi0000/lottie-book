@@ -10,6 +10,7 @@
     "npm:unplugin-fonts@^1.4.0": "1.4.0_vite@7.3.0__@types+node@24.10.4__picomatch@4.0.3_@types+node@24.10.4",
     "npm:vite-plugin-vuetify@^2.1.2": "2.1.2_vite@7.3.0__@types+node@24.10.4__picomatch@4.0.3_vue@3.5.26__typescript@5.9.3_vuetify@3.11.5__typescript@5.9.3__vite-plugin-vuetify@2.1.2__vue@3.5.26___typescript@5.9.3__vite@7.3.0___@types+node@24.10.4___picomatch@4.0.3__@types+node@24.10.4_@types+node@24.10.4_typescript@5.9.3",
     "npm:vite@^7.2.4": "7.3.0_@types+node@24.10.4_picomatch@4.0.3",
+    "npm:vue-i18n@^11.2.8": "11.2.8_vue@3.5.26__typescript@5.9.3_typescript@5.9.3",
     "npm:vue-router@^4.6.4": "4.6.4_vue@3.5.26__typescript@5.9.3_typescript@5.9.3",
     "npm:vue-tsc@^3.1.4": "3.2.1_typescript@5.9.3",
     "npm:vue3-lottie@^3.3.1": "3.3.1_vue@3.5.26__typescript@5.9.3_typescript@5.9.3",
@@ -169,6 +170,23 @@
     },
     "@fontsource/roboto@5.2.9": {
       "integrity": "sha512-ZTkyHiPk74B/aj8BZWbsxD5Yu+Lq+nR64eV4wirlrac2qXR7jYk2h6JlLYuOuoruTkGQWNw2fMuKNavw7/rg0w=="
+    },
+    "@intlify/core-base@11.2.8": {
+      "integrity": "sha512-nBq6Y1tVkjIUsLsdOjDSJj4AsjvD0UG3zsg9Fyc+OivwlA/oMHSKooUy9tpKj0HqZ+NWFifweHavdljlBLTwdA==",
+      "dependencies": [
+        "@intlify/message-compiler",
+        "@intlify/shared"
+      ]
+    },
+    "@intlify/message-compiler@11.2.8": {
+      "integrity": "sha512-A5n33doOjmHsBtCN421386cG1tWp5rpOjOYPNsnpjIJbQ4POF0QY2ezhZR9kr0boKwaHjbOifvyQvHj2UTrDFQ==",
+      "dependencies": [
+        "@intlify/shared",
+        "source-map-js"
+      ]
+    },
+    "@intlify/shared@11.2.8": {
+      "integrity": "sha512-l6e4NZyUgv8VyXXH4DbuucFOBmxLF56C/mqh2tvApbzl2Hrhi1aTDcuv5TKdxzfHYmpO3UB0Cz04fgDT9vszfw=="
     },
     "@jridgewell/sourcemap-codec@1.5.5": {
       "integrity": "sha512-cYQ9310grqxueWbl+WuIUIaiUaDcj7WOq5fVhEljNVgRfOUhY9fy2zTvfoqWsnebh8Sl70VScFbICvJnLKB0Og=="
@@ -734,6 +752,15 @@
     "vscode-uri@3.1.0": {
       "integrity": "sha512-/BpdSx+yCQGnCvecbyXdxHDkuk55/G3xwnC0GqY4gmQ3j+A+g8kzzgB4Nk/SINjqn6+waqw3EgbVF2QKExkRxQ=="
     },
+    "vue-i18n@11.2.8_vue@3.5.26__typescript@5.9.3_typescript@5.9.3": {
+      "integrity": "sha512-vJ123v/PXCZntd6Qj5Jumy7UBmIuE92VrtdX+AXr+1WzdBHojiBxnAxdfctUFL+/JIN+VQH4BhsfTtiGsvVObg==",
+      "dependencies": [
+        "@intlify/core-base",
+        "@intlify/shared",
+        "@vue/devtools-api",
+        "vue"
+      ]
+    },
     "vue-router@4.6.4_vue@3.5.26__typescript@5.9.3_typescript@5.9.3": {
       "integrity": "sha512-Hz9q5sa33Yhduglwz6g9skT8OBPii+4bFn88w6J+J4MfEo4KRRpmiNG/hHHkdbRFlLBOqxN8y8gf2Fb0MTUgVg==",
       "dependencies": [
@@ -801,6 +828,7 @@
         "npm:unplugin-fonts@^1.4.0",
         "npm:vite-plugin-vuetify@^2.1.2",
         "npm:vite@^7.2.4",
+        "npm:vue-i18n@^11.2.8",
         "npm:vue-router@^4.6.4",
         "npm:vue-tsc@^3.1.4",
         "npm:vue3-lottie@^3.3.1",
