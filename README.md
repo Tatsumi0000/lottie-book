@@ -8,10 +8,12 @@ A simple tool to manage Lottie JSON files on GitHub Pages.
 
 ### Automatically display JSON files by component
 Simply place JSON files in `src/assets/light` or `src/assets/dark`, and all JSON files will be automatically loaded and expanded.
+
 <img src="./docs/play_component.webp" width="500" alt="play component">
 
 ### Play lottie json file
 Drag and drop JSON files to play.
+
 <img src="./docs/drag_and_drop.webp" width="500" alt="drag and drop">
 
 ## How to Use
