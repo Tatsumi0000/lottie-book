@@ -4,6 +4,7 @@ export default {
   $vuetify: {
     ...ja,
     play: "再生",
+    loop: "ループ",
     message: {
       notfound: {
         file: "ファイルが見つかりません。",

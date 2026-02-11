@@ -105,7 +105,7 @@ watch(loop, (newLoop) => {
           <span
             class="text-body-2 font-weight-bold text-grey-darken-2 mr-2 d-none d-sm-inline"
           >
-            LOOP
+            {{ $t("$vuetify.loop") }}
           </span>
           <VSwitch
             v-model="loop"
