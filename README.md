@@ -5,6 +5,7 @@
 A simple tool to manage Lottie JSON files on GitHub Pages.
 
 ## Features
+Demo site is here https://tatsumi0000.github.io/lottie-book/#/
 
 ### Automatically display JSON files by component
 Simply place JSON files in `src/assets/light` or `src/assets/dark`, and all JSON files will be automatically loaded and expanded.
