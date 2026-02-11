@@ -2,7 +2,9 @@
 import LottieAnimationItem from "@/components/LottieAnimationItem.vue";
 import { ref, watch } from "vue";
 import { mdiAlertCircle, mdiClose, mdiFileCode } from "@mdi/js";
+import { useLocale } from "vuetify";
 
+const { t } = useLocale();
 const isShowError = ref(false);
 const errorMessage = ref("");
 
@@ -20,9 +22,7 @@ const fileInfo = ref<FileInfo>();
 const fileDefineModel = defineModel<File | File[] | undefined>();
 
 const rejectedEvent = () => {
-  triggerError(
-    "ファイルタイプが不正です。JSONファイルをアップロードして下さい。",
-  );
+  triggerError(t("$vuetify.message.error.filetype"));
 };
 
 const onAlertClosed = () => {
@@ -49,9 +49,9 @@ watch(fileDefineModel, async (newFile) => {
   } catch (error) {
     fileDefineModel.value = undefined;
     if (error instanceof SyntaxError) {
-      triggerError("JSONの構文エラーが発生しました。");
+      triggerError(t("$vuetify.message.error.syntax"));
     } else {
-      triggerError("読み込みまたは解析に失敗しました。");
+      triggerError(t("$vuetify.message.error.readorparse"));
     }
   }
 });

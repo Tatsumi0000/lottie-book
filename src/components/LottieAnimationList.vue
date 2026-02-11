@@ -2,8 +2,12 @@
 import LottieAnimationItem from "@/components/LottieAnimationItem.vue";
 import { useLottieAssets } from "@/composables/useLottieAssets";
 import { mdiAlertCircleOutline } from "@mdi/js";
+import { useLocale } from "vuetify";
+
 // Composableを呼び出し
 const { currentAssets } = useLottieAssets();
+
+const { t } = useLocale();
 </script>
 
 <template>
@@ -21,8 +25,10 @@ const { currentAssets } = useLottieAssets();
       <VCol cols="12" md="8">
         <VEmptyState
           :icon="mdiAlertCircleOutline"
-          title="コンテンツが見つかりません"
-          text="現在のテーマに対応するアニメーションアセットが見つかりませんでした。ディレクトリの設定を確認してください。"
+          :title="t('$vuetify.message.notfound.content')"
+          :text="
+            t('$vuetify.message.notfound.currentanimationcheckyourdirector')
+          "
         >
         </VEmptyState>
       </VCol>

@@ -4,6 +4,9 @@ import { router } from "@/plugins/router";
 import { computed, ref, watch } from "vue";
 import { useRoute } from "vue-router";
 import { mdiAlertCircle, mdiClose } from "@mdi/js";
+import { useLocale } from "vuetify";
+
+const { t } = useLocale();
 const route = useRoute();
 const animationData = ref<object | null>(null);
 const isLoading = ref(false);
@@ -33,11 +36,9 @@ const loadLottieFile = async (theme: string, title: string) => {
       // module.default に JSON の中身が入っている
       animationData.value = module.default;
     } catch (e) {
-      console.error("ファイルの読み込みに失敗しました", e);
       animationData.value = null;
     }
   } else {
-    console.warn("対象のファイルが見つかりません:", fullPath);
     animationData.value = null;
   }
 
@@ -91,7 +92,8 @@ const isOpen = computed({
         variant="tonal"
         :icon="mdiAlertCircle"
         @click:close="onAlertClosed()"
-      >ファイルが見つかりません</VAlert>
+        >{{ t("$vuetify.message.notfound.file") }}
+      </VAlert>
     </VCard>
   </VDialog>
 </template>

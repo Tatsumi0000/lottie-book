@@ -72,7 +72,7 @@ watch(loop, (newLoop) => {
     elevation="2"
     rounded="xl"
     :to="isTopPage ? transitionLink : undefined"
-    :style='{ cursor: isTopPage ? "pointer" : "default" }'
+    :style="{ cursor: isTopPage ? 'pointer' : 'default' }"
     :ripple="isTopPage"
   >
     <div
@@ -89,16 +89,16 @@ watch(loop, (newLoop) => {
     <VCardTitle class="text-h6 font-weight-bold pt-4 px-4 text-truncate">
       {{ props.title }}
     </VCardTitle>
-    <VCardActions clmdiPlayass="px-4 pb-4">
-      <div class="d-flex align-center justify-space-between w-100" @click.stop>
+    <VCardActions class="px-4 pb-4">
+      <div class="d-flex align-center justify-space-between w-100">
         <VBtn
           color="primary"
           variant="elevated"
           :prepend-icon="mdiPlay"
           rounded="lg"
-          @click="handlePlay"
+          @click.stop.prevent="handlePlay"
         >
-          再生
+          {{ $t("$vuetify.play") }}
         </VBtn>
 
         <div class="d-flex align-center" @click.stop>
