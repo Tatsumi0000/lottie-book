@@ -1,4 +1,4 @@
-FROM denoland/deno:2.6.3
+FROM denoland/deno:2.9.6
 
 RUN apt update && \
     apt -y upgrade  
